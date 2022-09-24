@@ -5,7 +5,7 @@
  * in compliance with, at your election, the Elastic License 2.0 or the Server
  * Side Public License, v 1.
  */
-package org.elasticsearch.example.resthandler;
+package org.elasticsearch.dooplugin.resthandler;
 
 import org.elasticsearch.client.internal.node.NodeClient;
 import org.elasticsearch.common.Table;
@@ -22,23 +22,23 @@ import static org.elasticsearch.rest.RestRequest.Method.POST;
 /**
  * Example of adding a cat action with a plugin.
  */
-public class ExampleCatAction extends AbstractCatAction {
+public class DooCatAction extends AbstractCatAction {
 
     @Override
     public List<Route> routes() {
         return List.of(
-            new Route(GET, "/_cat/example"),
-            new Route(POST, "/_cat/example"));
+            new Route(GET, "/_cat/900gle"),
+            new Route(POST, "/_cat/900gle"));
     }
 
     @Override
     public String getName() {
-        return "rest_handler_cat_example";
+        return "rest_handler_cat_900gle";
     }
 
     @Override
     protected RestChannelConsumer doCatRequest(final RestRequest request, final NodeClient client) {
-        final String message = request.param("message", "Hello from Cat Example action");
+        final String message = request.param("message", "Hello from Cat Example 900gle");
 
         Table table = getTableWithHeader(request);
         table.startRow();
@@ -59,7 +59,7 @@ public class ExampleCatAction extends AbstractCatAction {
     }
 
     public static String documentation() {
-        return "/_cat/example\n";
+        return "/_cat/900gle\n";
     }
 
     @Override

@@ -1,8 +1,15 @@
+/*
+ * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+ * or more contributor license agreements. Licensed under the Elastic License
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
+ */
+
 buildscript {
   repositories {
     mavenLocal()
     mavenCentral()
-//    jcenter()
   }
 
   dependencies {
@@ -14,13 +21,7 @@ plugins {
   id 'java'
 }
 
-/*
- * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
- * or more contributor license agreements. Licensed under the Elastic License
- * 2.0 and the Server Side Public License, v 1; you may not use this file except
- * in compliance with, at your election, the Elastic License 2.0 or the Server
- * Side Public License, v 1.
- */
+
 apply plugin: 'elasticsearch.esplugin'
 apply plugin: 'elasticsearch.yaml-rest-test'
 
@@ -29,18 +30,17 @@ apply plugin: 'elasticsearch.yaml-rest-test'
 esplugin {
   name 'rest-handler'
   description 'An example plugin showing how to register a REST handler'
-  classname 'org.elasticsearch.example.resthandler.ExampleRestHandlerPlugin'
+  classname 'org.elasticsearch.dooplugin.resthandler.DooRestHandlerPlugin'
   licenseFile rootProject.file('SSPL-1.0+ELASTIC-LICENSE-2.0.txt')
   noticeFile rootProject.file('NOTICE.txt')
 }
 
-group = 'com.example'
-version = '0.1'
+group = 'com.dooplugin'
+version = '8.4'
 sourceCompatibility = '18'
 
 repositories {
   mavenCentral()
-//  jcenter()
 }
 
 

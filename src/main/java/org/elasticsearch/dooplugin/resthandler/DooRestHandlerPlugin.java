@@ -6,7 +6,7 @@
  * Side Public License, v 1.
  */
 
-package org.elasticsearch.example.resthandler;
+package org.elasticsearch.dooplugin.resthandler;
 
 import org.elasticsearch.cluster.metadata.IndexNameExpressionResolver;
 import org.elasticsearch.cluster.node.DiscoveryNodes;
@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 
 import static java.util.Collections.singletonList;
 
-public class ExampleRestHandlerPlugin extends Plugin implements ActionPlugin {
+public class DooRestHandlerPlugin extends Plugin implements ActionPlugin {
 
     @Override
     public List<RestHandler> getRestHandlers(final Settings settings,
@@ -35,6 +35,6 @@ public class ExampleRestHandlerPlugin extends Plugin implements ActionPlugin {
                                              final IndexNameExpressionResolver indexNameExpressionResolver,
                                              final Supplier<DiscoveryNodes> nodesInCluster) {
 
-        return singletonList(new ExampleCatAction());
+        return singletonList(new DooCatAction());
     }
 }
