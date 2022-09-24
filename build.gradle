@@ -1,0 +1,59 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+//    jcenter()
+  }
+
+  dependencies {
+    classpath "org.elasticsearch.gradle:build-tools:8.4.1"
+  }
+}
+
+plugins {
+  id 'java'
+}
+
+/*
+ * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+ * or more contributor license agreements. Licensed under the Elastic License
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
+ */
+apply plugin: 'elasticsearch.esplugin'
+apply plugin: 'elasticsearch.yaml-rest-test'
+
+
+
+esplugin {
+  name 'rest-handler'
+  description 'An example plugin showing how to register a REST handler'
+  classname 'org.elasticsearch.example.resthandler.ExampleRestHandlerPlugin'
+  licenseFile rootProject.file('SSPL-1.0+ELASTIC-LICENSE-2.0.txt')
+  noticeFile rootProject.file('NOTICE.txt')
+}
+
+group = 'com.example'
+version = '0.1'
+sourceCompatibility = '18'
+
+repositories {
+  mavenCentral()
+//  jcenter()
+}
+
+
+dependencies {
+  implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '8.4.1'
+//  yamlRestTestRuntimeOnly "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+
+
+}
+
+test {
+  useJUnitPlatform()
+}
